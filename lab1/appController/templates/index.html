@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Информация о системе</title>
+    <!-- Подключение стилей Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>System information</h1>
+        <table class="table">
+            <tbody>
+            <tr>
+                <td>Antivirus status:</td>
+                <td>{{ system_information.Antivirus }} (Signature: {{ system_information.Signa }})</td>
+            </tr>
+            <tr>
+                <td>Network protection status:</td>
+                <td>{{ system_information.Firewall  }}</td>
+            </tr>
+            <tr>
+                <td>Status of OS updates:</td>
+                <td>{{ system_information.OSUpdate }}</td>
+            </tr>
+            <tr>
+                <td>CPU:</td>
+                <td>{{ system_information.CPU }}</td>
+            </tr>
+            <tr>
+                <td>RAM:</td>
+                <td>{{ system_information.RAM }}</td>
+            </tr>
+            <tr>
+                <td>Disk total space</td>
+                <td>{{ system_information.DiskTotal / (1024 ** 3) }}</td>
+            </tr>
+            <tr>
+                <td>Disk free space:</td>
+                <td>{{ system_information.DiskFree / (1024 ** 3) }}</td>
+            </tr>
+            <tr>
+                <td>OS:</td>
+                <td>{{ system_information.OS }}</td>
+            </tr>
+            </tbody>
+        </table>
+        <button type="button" class="btn btn-primary" onclick="location.href='/refresh'">Update</button>
+        <button type="button" class="btn btn-success" onclick="location.href='/json'">JSON</button>
+    </div>
+
+    <div class="container">
+        <h1>File information</h1>
+
+        <table class="table">
+            <tbody>
+            <tr>
+                <td>File name:</td>
+                <td>{{ file_information.file_name }}</td>
+            </tr>
+            <tr>
+                <td>Owner UID:</td>
+                <td>{{ file_information.owner }}</td>
+            </tr>
+            <tr>
+                <td>Information:</td>
+                <td>{{ file_information.version }}</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <form method="post" action="/file">
+            <label for="path"></label><input type="text" id="path" name="path" placeholder="Path to file">
+            <button type="submit" class="btn btn-primary" onclick="location.href='/file'">Check file</button>
+            <br>
+        </form>
+    </div>
+
+    <div class="container">
+
+        <h1>System information (select option)</h1>
+
+        <label for="menu"></label><select id="menu" name="menu">
+            <option value="as">Antivirus status</option>
+            <option value="cpu">CPU</option>
+            <option value="ram">RAM</option>
+        </select>
+
+	    <button onclick="sendData()" class="btn btn-primary">Submit</button>
+
+        <script>
+            function sendData() {
+                var select = document.getElementById("menu");
+                var selectedOption = select.options[select.selectedIndex].value;
+
+                var xhttp = new XMLHttpRequest();
+                xhttp.open("POST", "/process_menu", true);
+                xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                xhttp.send("selectedOption=" + selectedOption);
+                location.reload();
+            }
+        </script>
+
+        <table class="table">
+            <tbody>
+                <tr>
+                    <td>Information:</td>
+                    <td>{{ select.res }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+</body>
+</html>
