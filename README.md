@@ -33,4 +33,4 @@ At this stage, the site has one bug. When you choose to check the system status 
 
 
 # Terms of Reference
-1. [lab1]()
+1. [lab1](https://github.com/andrey1pf/Mobile-security/blob/main/Conditions/Task%201%20-%20OS%20and%20Device%20Info.pdf)
