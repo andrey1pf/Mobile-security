@@ -25,6 +25,7 @@ After that you can see how the application works by clicking on the link http://
 
 # Bug
 + Lab1. At this stage, the site has one bug. When you choose to check the system status one item at a time, you need to make sure that there is no ```/refresh``` in the address bar at this point.
++ Lab2. There is a problem with creating an archive from a folder located in ```C://``. 
 
 # Startup features in Docker
 + When you enter the file path, you are looking for the file in the docker, not on your host system.
