@@ -20,7 +20,7 @@ Install all the libraries you need for the application to work. See the requirem
 + Terminal. Clone the repository, you can do this by using command ```git clone``` or downloading the zip archive.  
 The next step is to enter a command ```python app.py``` in the project folder.
 + Docker. Clone the repository, you can do this by using command ```git clone``` or downloading the zip archive.
-Start with docker - You need to execute two commands (in the project folder) ```docker build -t security_lab:dev .``` and then ```docker run -p 5000:5000 security_lab:dev```.
+Start with docker - You need to execute two commands (in the project folder) ```docker build -t security_lab:dev .``` and then ```docker run -p 5000:5000 security_lab:dev```.  
 After that you can see how the application works by clicking on the link http://127.0.0.1:5000.
 
 # Bug
