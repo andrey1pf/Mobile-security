@@ -33,4 +33,4 @@ After that you can see how the application works by clicking on the link http://
 
 # Terms of Reference
 1. [lab1](https://github.com/andrey1pf/Mobile-security/blob/main/Conditions/Task%201%20-%20OS%20and%20Device%20Info.pdf)
-2. [lab2]()
+2. [lab2](https://github.com/andrey1pf/Mobile-security/blob/main/Conditions/Task%202%20-%20Work%20with%20permissions.pdf)
