@@ -30,6 +30,7 @@ After that you can see how the application works by clicking on the link http://
 # Startup features in Docker
 + When you enter the file path, you are looking for the file in the docker, not on your host system.
 + System metrics - indicators of the resources that have been allocated to the container.
++ In lab 2 if you want to start with docker do not use Docker Desktop, because program will be run with root permissions.
 
 
 # Terms of Reference
