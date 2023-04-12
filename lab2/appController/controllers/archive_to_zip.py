@@ -1,5 +1,4 @@
-import ctypes
-import shutil
+import zipfile
 import os
 from pathlib import Path
 
@@ -17,8 +16,11 @@ def get_archive_name(path):
 
 
 def windows_with_root(path):
-    ctypes.windll.shell32.ShellExecuteW(None, "runas", "python", "archive_to_zip.py", None, 1)
-    shutil.make_archive(get_archive_name(path), "zip", path)
+    with zipfile.ZipFile(get_archive_name(path), 'w') as zipf:
+        for root, _, files in os.walk(path):
+            for file in files:
+                file_path = os.path.join(root, file)
+                zipf.write(file_path, os.path.relpath(file_path, path))
     path = Path(path + '.zip')
     return path.is_file()
 
