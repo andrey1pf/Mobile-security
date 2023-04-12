@@ -20,11 +20,11 @@ Install all the libraries you need for the application to work. See the requirem
 + Terminal. Clone the repository, you can do this by using command ```git clone``` or downloading the zip archive.  
 The next step is to enter a command ```python app.py``` in the project folder.
 + Docker. Clone the repository, you can do this by using command ```git clone``` or downloading the zip archive.
-Start with docker - You need to execute two commands (in the project folder) ```docker build -t security_lab1:dev .``` and then ```docker run -p 5000:5000 security_lab1:dev```.
+Start with docker - You need to execute two commands (in the project folder) ```docker build -t security_lab:dev .``` and then ```docker run -p 5000:5000 security_lab:dev```.
 After that you can see how the application works by clicking on the link http://127.0.0.1:5000.
 
 # Bug
-At this stage, the site has one bug. When you choose to check the system status one item at a time, you need to make sure that there is no ```/refresh``` in the address bar at this point.
++ Lab1. At this stage, the site has one bug. When you choose to check the system status one item at a time, you need to make sure that there is no ```/refresh``` in the address bar at this point.
 
 # Startup features in Docker
 + When you enter the file path, you are looking for the file in the docker, not on your host system.
@@ -33,3 +33,4 @@ At this stage, the site has one bug. When you choose to check the system status 
 
 # Terms of Reference
 1. [lab1](https://github.com/andrey1pf/Mobile-security/blob/main/Conditions/Task%201%20-%20OS%20and%20Device%20Info.pdf)
+2. [lab2]()
